@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>录入信息</title>
+    <link rel="stylesheet" href='../stylesheets/insert.css' type="text/css">
+</head>
+
+<body>
+    <div class="results">
+        <a href="/manager/logout"><img id="logout" src="../images/logout.png"></a><br>
+
+        <form method="POST" action="/manager/insertdriverinfo">
+            <a>录入司机基本信息</a><br>
+            <a>工号：</a> <br>
+            <input type="text" name="id"><br>
+            <a>姓名：</a><br>
+            <input type="text" name="name"><br>
+            <a>性别：</a>
+            <select name="sex" style="margin-top: 5px;margin-bottom: 5px;">
+                <option>男</option>
+                <option>女</option>
+            </select><br>
+            <a>身份：</a>
+            <select id="identify" name="identify" onchange="">
+                <option>普通司机</option>
+                <!-- <option>队长</option>
+                <option>路队长</option> -->
+            </select><br>
+            <!-- <a>所属车队:</a>
+            <select id="busteam" name="busteam">
+            </select><br> -->
+            <a>所属线路:</a>
+            <select id="road" name="road">
+            　　<% for(let i of chose[0]){ %>
+                　　　<option > <%= i.road_id %> </option>                         　　　                        
+                <% } %>
+            </select><br>
+            
+            <% if(warn != '') { %>
+            <a class="warning"><span><%= warn %></span></a><br>
+            <%  } %>
+            <input type="submit" id="insert" value="确认录入"><br>
+
+        </form>
+    </div>
+    <script>
+        function change() {
+            var x = document.getElementById("identify")
+            var y = document.getElementById("road")
+            var z = document.getElementById("busteam")
+            if (x.selectedIndex == 1) {
+                y.options.length = 0
+                <% for(let i of chose[1]){ %>
+                    　z.options.add(new Option("<%= i.busteam_id %>"));                         　　　                        
+                <% } %>
+            } else {
+                z.options.length = 0
+                <% for(let i of chose[0]){ %>
+                    　y.options.add(new Option("<%= i.road_id %>"));                         　　　                        
+                <% } %>
+            }
+        }
+    </script>
+</body>
+
+
+</html>

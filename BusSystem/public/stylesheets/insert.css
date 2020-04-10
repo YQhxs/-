@@ -1,0 +1,25 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#logout{
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+    margin-left:80vw;
+  }
+#insert{
+    margin-left: 95px;
+}
+form{
+    margin-left:30vw;
+}  
+div.results form input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+a.warning span{
+    font-weight:bold;
+    color:#ff9955;
+  }

@@ -1,0 +1,26 @@
+body {
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+a,input{
+    margin-top: 10px;
+    margin-bottom: 10px;   
+}
+a{
+    font-size: 18px;
+}
+#submit{
+    width: 40%;
+    margin-left: 60%;
+}
+a.warning span{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 10px;
+    font-weight:bold;
+    color:#ff9955;
+}

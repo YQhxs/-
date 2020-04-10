@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>录入信息</title>
+    <link rel="stylesheet" href='../stylesheets/insert.css' type="text/css">
+</head>
+
+<body>
+    <div  class="results">
+        <a href="/manager/logout"><img id="logout" src="../images/logout.png"></a><br>  
+
+        <form method="POST" action="/manager/insertbusinfo">
+            <a>录入车辆信息<br></a>
+            <a>车牌号:<br></a>
+            <input type="text" name="id">
+            <!-- <a><br>公司:<br></a>
+            <input type="text" name="company" value="公司1"> -->
+            <!-- <a><br>车队:<br></a>
+            <input type="text" name="busteam" value="车队1"> -->
+            <a><br>所属线路:<br></a>
+            <select id="road" name="road">
+            　　<% for(let i of chose[0]){ %>
+                　　　<option> <%= i.road_id %> </option>                         　　　                        
+                <% } %>
+            </select><br>
+
+            <a><br>座位数:<br></a>
+            <input type="number" name="seat"><br>
+            <% if(warn != '') { %>
+                <a class="warning"><span><%= warn %></span></a><br>
+            <%  } %>
+            <input type="submit" id="insert" value="确认录入">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+body{
+  margin-left: 30%;
+}
+.index{
+  display: flex;
+  margin-top: 40px;
+  justify-content: space-between;
+}
+#logout{
+  height: 30px;
+  width: 30px;
+  /* margin-left:40vw; */
+}
+.exit{
+  margin-right: 100px;
+}
+.info a{
+  margin-left: 10px;
+  color: black;
+}
+
+.link{
+  margin-top: 100px;
+}
+.link a{
+  margin-left: 5px;
+
+}
+a {
+  color: #00B7FF;
+}
+
+

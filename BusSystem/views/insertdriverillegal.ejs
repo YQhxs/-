@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>录入信息</title>
+        <link rel="stylesheet" href='../stylesheets/insert.css' type="text/css">
+    </head>
+    <bod>
+        <div class="results">
+            <a href="/manager/logout"><img id="logout" src="../images/logout.png"></a><br>
+
+            <form method="POST" action="/manager/insertdriverillegalrecord">
+                <a>录入司机违章信息<br></a>
+                <a>工号:<br></a> 
+                <input type="text" name="id"><br>
+                <a>车牌:<br></a> 
+                <input type="text" name="busid"><br>
+                <a>站点:</a> 
+                <select name="station">
+                　　<% for(let i of chose[0]){ %>
+                    　　　<option > <%= i.station %> </option>                         　　　                        
+                    <% } %>
+                </select><br>
+                <a>日期:</a>
+                <input type="date" name="date"><br>
+                <a>违章类型</a>
+                <select  name="type">
+                　　<% for(let i of chose[1]){ %>
+                    　　　<option > <%= i.illegal %> </option>                         　　　                        
+                    <% } %>
+                </select><br>
+              
+                <% if(warn != '') { %>
+                    <a class="warning"><span><%= warn %></span></a><br>
+                <%  } %>
+                <input type="submit" id="insert" value="确认录入">
+            </form>
+        </div>
+    </bod>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>查询信息</title>
+    <link rel="stylesheet" href='../stylesheets/results.css' type="text/css">
+</head>
+<body>
+    <div class="results">
+        <a href="/manager/logout"><img id="logout" src="../images/logout.png"></a><br>
+        <a>查询某个车队下的司机基本信息</a>
+        <form method="POST" action="/manager/querydriverbase">
+
+            <a>所属车队:</a>
+            <input type="text" value="车队1" name="busteam">
+            <input type="submit" id="query" value="查询" style="margin-left: 30vw;">
+        </form>
+        <table border="1" cellspacing='0'>
+            <tr>
+                <td></td>
+                <td>工号</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>身份</td>
+                <td>所属车队</td>
+                <td>所属线路</td>
+            </tr>
+            <% for(var i=0; i< results.length; i++) { %>
+            <tr>
+                <td><%= i+1 %></td>
+                <td><%= results[i].driver_id %></td>
+                <td><%= results[i].driver_name %></td>
+                <td><%= results[i].driver_sex %></td>
+                <td><%= results[i].driver_identify %></td>
+                <td><%= results[i].busteam_id %></td>
+                <% if(results[i].road_id){ %>
+                    <td><%= results[i].road_id %></td>
+                <% } %>
+            </tr>
+            <% } %>
+        </table>
+        <% if(warn != '') { %>
+            <a class="warning"><span><%= warn %></span></a>
+        <%  } %>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>登录界面</title>
+  <link rel="stylesheet" href="../stylesheets/login.css" type="text/css">
+</head>
+<body>
+  <div>
+    <form method="POST" action="/login">
+      <a>登录名(工号)：</a> <br>
+      <input type="text" name="id"><br>
+      <a>密码：</a><br>
+      <input type="password" name="password"><br>
+      <% if(warn != '') { %>
+      <a class="warning"><span><%= warn %></span></a>
+      <%  } %>
+      <input type="submit" id="submit" value="登录">
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#logout{
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+    margin-left:70vw;
+}
+.driverinfo{
+    font-weight: bold;
+}
+.illegal{
+    margin-top: 10px;
+}
+div.illegal table{
+    margin-top: 10px;
+    width: 57vw;
+}
+#query{
+    margin-left: 200px;
+    width: 80px;
+}
+a.warning span{
+    font-weight:bold;
+    color:#ff9955;
+  }

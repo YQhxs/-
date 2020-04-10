@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>查询信息</title>
+    <link rel="stylesheet" href='../stylesheets/results.css' type="text/css">
+</head>
+
+<body>
+    <div class="results">
+        <a href="/manager/logout"><img id="logout" src="../images/logout.png"></a><br>
+        <a>查询某个车队在某个时间段的违章统计信息</a>
+        <form method="POST" action="/manager/querybusteamillegal">
+            <a>车队:</a>
+            <input type="text" name="busteam" value="车队1"><br>
+            <a>起始时间:</a>
+            <input type="date" name="starttime">
+            <a>截止时间:</a>
+            <input type="date" name="endtime">
+            <input type="submit" id="query" value="查询">
+        </form>
+        <table border="1" cellspacing='0'>
+            <tr>
+                <td></td>
+                <td>违章类型</td>
+                <td>违章次数</td>
+            </tr>
+            <% for(var i=0; i<results.length; i++) {%>
+            <tr>
+                <td><%= i+1 %></td>
+                <td><%= results[i].i_type %></td>
+                <td><%= results[i].nums %></td>
+            </tr>
+            <% } %>
+        </table>
+        <% if(warn != '') { %>
+            <a class="warning"><span><%= warn %></span></a>
+        <%  } %>
+    </div>
+</body>
+
+</html>

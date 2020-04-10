@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>普通司机页面</title>
+    <link rel="stylesheet" href='../stylesheets/driverindex.css' type="text/css">
+</head>
+
+<body>
+    <div>
+        <a href="/driver/logout"><img src="../images/logout.png" id="logout"></a><br>
+        <div class="driverinfo">
+            <% if (myself.leangth != 0) {%>
+            <a>本人基本信息如下:</a><br>
+            <a>工号：<%= myself[0].driver_id %></a><br>
+            <a>姓名：<%= myself[0].driver_name %></a><br>
+            <a>性别：<%= myself[0].driver_sex %></a><br>
+            <a>身份：<%= myself[0].driver_identify %></a><br>
+            <% if (myself[0].road_id) {%>
+            <a>所走线路：<%= myself[0].road_id %></a><br>
+            <% }%>
+            <% if (myself[0].busteam_id) {%>
+            <a>所属车队：<%= myself[0].busteam_id %></a><br>
+            <% }%>
+            <% }%>
+        </div>
+        <div class="illegal">
+            <a>查询本人违章详细信息:</a><br>
+            <form method="POST" action="/driver/querymyselfillegal">
+                <a>起始时间</a>
+                <input type="date" name="starttime">
+                <a>截止时间</a>
+                <input type="date" name="endtime">
+                <input type="submit" id="query" value="查询">
+            </form>
+            <table border="1" cellspacing='0'>
+                <tr>
+                    <td></td>
+                    <td>工号</td>
+                    <td>车牌号</td>
+                    <td>所走线路</td>
+                    <td>所属车队</td>
+                    <td>违章日期</td>
+                    <td>违章站点</td>
+                    <td>违章类型</td>
+                </tr>
+                <% for(var i=0; i<results.length; i++) {%>
+                <tr>
+                    <td><%= i+1 %></td>
+                    <td><%= results[i].i_driver_id %></td>
+                    <td><%= results[i].i_bus_id %></td>
+                    <td><%= results[i].road_id %></td>
+                    <td><%= results[i].busteam_id %></td>
+                    <td><%= results[i].i_time.toLocaleDateString() %></td>
+                    <td><%= results[i].i_station%></td>
+                    <td><%= results[i].i_type %></td>
+                </tr>
+                <% } %>
+            </table>
+            <% if(warn != '') { %>
+            <a class="warning"><span><%= warn %></span></a>
+            <%  } %>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
